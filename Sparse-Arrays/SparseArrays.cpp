@@ -3,6 +3,32 @@
     Date: July 17th, 2022
 
     HackerRank: Sparse Arrays
+
+    match queries with strings
+
+    string strings[n] - an array of strings to search
+    string queries[q] - an array of query strings
+
+    Example:
+
+    Input:
+    4       strings[n]
+    aba
+    baba
+    aba
+    xzxb
+    3       queries[n]
+    aba
+    xzxb
+    ab
+
+    Output:
+    2
+    1
+    0
+
+    There are 2 instances of 'ab', 1 of 'abc' and 0 of 'bc'
+    For each query, add an element to the return array, .
 */
 #include <bits/stdc++.h>
 #include <string.h>
@@ -24,9 +50,11 @@ string rtrim(const string&);
 
 vector<int> matchingStrings(vector<string> strings, vector<string> queries) {
 
+    vector<int> matches;
 
+    
 
-
+    return matches;
 }
 
 int main()
