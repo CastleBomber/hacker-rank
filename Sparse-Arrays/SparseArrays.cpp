@@ -50,9 +50,22 @@ string rtrim(const string&);
 
 vector<int> matchingStrings(vector<string> strings, vector<string> queries) {
 
+    int count = 0;
     vector<int> matches;
 
-    
+    for (int q = 0; q < queries.size(); q++) {
+
+        for (int s = 0; s < strings.size(); s++) {
+
+            if (queries[q].substring(strings[s])) {
+
+                count++;
+            }
+        }
+
+        matches.push_back(count);
+        count = 0;
+    }
 
     return matches;
 }
