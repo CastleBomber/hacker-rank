@@ -57,7 +57,7 @@ vector<int> matchingStrings(vector<string> strings, vector<string> queries) {
 
         for (int s = 0; s < strings.size(); s++) {
 
-            if (queries[q].substring(strings[s])) {
+            if (queries[q] == strings[s]) {
 
                 count++;
             }
