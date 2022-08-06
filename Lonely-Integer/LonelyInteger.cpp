@@ -29,6 +29,32 @@ vector<string> split(const string&);
 
 int lonelyinteger(vector<int> a) {
 
+    int i = 1;
+    int j = 0;
+    vector<int> lonelyIntegers;
+    vector<int> duplicates;
+
+    lonelyIntegers.push_back(a[0]);
+
+    if (a.size() == 1) { return 0;} // handle case of 1 element
+
+    for (i = 1; i < a.size(); i++) {
+
+        for (j = 0; j < lonelyIntegers.size(); j++) {
+
+            if (a[i] == lonelyIntegers[j]) {
+
+                duplicates.push_back(lonelyIntegers[j]);
+            }
+        }
+    }
+
+    if (duplicates.size() == 0) {
+
+        return 0;
+    }
+
+    return duplicates[0];
 }
 
 int main()
