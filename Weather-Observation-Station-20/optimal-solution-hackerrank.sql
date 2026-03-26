@@ -1,0 +1,1 @@
+median of the Northern Latitudes (LAT_N) 
