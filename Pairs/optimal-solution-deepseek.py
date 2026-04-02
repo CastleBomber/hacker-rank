@@ -4,15 +4,19 @@
     Author: CBOMBS
     Date:   March 25th, 2026
 
-    HackerRank: Pairs
+    HackerRank: Pairs 
+    (better time, good space)
 
-    Given an array of integers and a target value, determine the number of pairs of array elements that have a difference equal to the target value.
+    Given an array of integers and a target value, 
+    determine the number of pairs of array elements 
+    that have a difference equal to the target value.
 
     Example:
         k = 1
         arr = [1, 2, 3, 4]
         
-        There are three values that differ by k = 1: 2 - 1, 3 - 2, and 4 - 3. Return 3.
+        There are three values that differ by k = 1: 2 - 1, 3 - 2, and 4 - 3. 
+        Return 3.
 
     
     Function Description:
@@ -75,6 +79,9 @@ import re
 import sys
 
 def pairs(k, arr):
+    '''
+    Makes use of both the array and set
+    '''
     s = set(arr)
     return sum(1 for x in arr if x + k in s)
 
@@ -97,8 +104,5 @@ if __name__ == '__main__':
     # fptr.write(str(result) + '\n')
 
     # fptr.close()
-
-
-
 
 

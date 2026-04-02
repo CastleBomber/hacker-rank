@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 """
 ********************************************************
-    Author: CBOMBS
+    Author: Deepseek + CBOMBS
     Date:   March 25th, 2026
 
-    HackerRank: Pairs
+    HackerRank: Pairs 
+    (longer time, better space)
 
-    Given an array of integers and a target value, determine the number of pairs of array elements that have a difference equal to the target value.
+    Given an array of integers and a target value, 
+    determine the number of pairs of array elements 
+    that have a difference equal to the target value.
 
     Example:
         k = 1
@@ -25,7 +28,8 @@
         int: the number of pairs that satisfy the criterion
 
     Input Format:
-        The first line contains two space-separated integers n and k, the size of arr and the target value.
+        The first line contains two space-separated integers n and k, 
+        the size of arr and the target value.
         The second line contains n space-separated integers of the array arr.
 
     Constraints:
@@ -63,7 +67,7 @@
                                     The subsequent linear scan runs in O(n) (each pointer moves at most n steps).
                                     Overall dominated by sorting.
     Space Complexity | O(1)       | Excluding the input array, only a few integer variables (i, j, count) are used.
-                                    Sorting (Timsort) may use O(n) temporary space, but algorithm itself is O(1).    
+                                    Sorting (Timesort) may use O(n) temporary space, but algorithm itself is O(1).    
 
 *********************************************************
 """

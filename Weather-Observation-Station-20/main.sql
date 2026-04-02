@@ -6,7 +6,7 @@
     HackerRank: Weather Observation Station 20
 
     A median is defined as a number separating the higher half of a data set from the lower half. 
-    Query the median of the Northern Latitudes (LAT_N) from STATION and round your answer to  decimal places.
+    Query the median of the Northern Latitudes (LAT_N) from STATION and round your answer to 4 decimal places.
 
     Input Format
     The STATION table is described as follows:
@@ -27,9 +27,9 @@
 
     Notes:
         Test prep for IBM Software Engineer Apprentice
-
         Uses standard SQL (ISO/ANSI) with window functions (ROW_NUMBER, COUNT(*) OVER). 
-    It works on:
+
+    Code works on:
         SQL Server
         PostgreSQL
         MySQL 8.0+
