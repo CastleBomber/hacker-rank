@@ -9,6 +9,9 @@
     Example: a = [1, 2, 2, 4, 1, 2]
 
     The unique element is 4.
+
+    Solution:
+        Ongoing
 */
 
 
