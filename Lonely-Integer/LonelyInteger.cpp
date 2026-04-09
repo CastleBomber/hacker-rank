@@ -1,4 +1,7 @@
-/*
+#!/usr/bin/env python3
+
+"""
+********************************************************
     Author: CBOMBS
     Date: July 25th, 2022
 
@@ -12,7 +15,12 @@
 
     Solution:
         Ongoing
-*/
+
+    Notes:
+        https://www.hackerrank.com/challenges/three-month-preparation-kit-lonely-integer/problem
+
+*********************************************************
+"""
 
 
 #include <bits/stdc++.h>

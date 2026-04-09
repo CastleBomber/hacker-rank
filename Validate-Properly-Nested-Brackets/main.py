@@ -13,6 +13,7 @@
         Ongoing
 
     Notes:
+        https://www.hackerrank.com/contests/software-engineer-prep-kit/challenges/validate-properly-nested-brackets/problem?isFullScreen=true
 
 *********************************************************
 """
