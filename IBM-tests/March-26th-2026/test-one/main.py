@@ -4,7 +4,8 @@
     Author: Deepseek + CBOMBS
     Date:   March 26th, 2026
 
-    HackerRank: Test one
+    HackerRank: Test #1
+    Position:   IBM Software Engineer Apprentice
 
     Calculates the maximum number of non-overlapping time windows that can be selected
 
