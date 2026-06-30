@@ -1,137 +1,181 @@
-"""
-********************************************************
-    Author: CBOMBS
-    Date: July 25th, 2022
+/**
+ * ******************************************************
+ * Author: ChatGPT + CBOMBS
+ * Date:   June 28th, 2026
+ *
+ * HackerRank: #4 Lonely Integer
+ *
+ * Given an array of integers, where all elements but one
+ * occur twice, find the unique element.
+ *
+ *
+ * Key Idea:
+ *
+ * Use XOR.
+ *
+ * XOR has two useful properties:
+ *
+ * x ^ x = 0
+ * x ^ 0 = x
+ *
+ * So every duplicate pair cancels itself out.
+ * The only number left is the lonely integer.
+ *
+ *
+ * Example:
+ * a = [1, 2, 3, 4, 3, 2, 1]
+ *
+ * 1 ^ 2 ^ 3 ^ 4 ^ 3 ^ 2 ^ 1
+ *
+ * Duplicate values cancel.
+ *
+ * Return 4
+ *
+ *
+ * Constraints:
+ *
+ * 1 <= n < 100
+ * n is odd
+ * 0 <= a[i] <= 100
+ * All elements except one occur twice.
+ *
+ *
+ * Compile and run:
+ * g++ -std=c++23 LonelyInteger.cpp -o LonelyInteger && ./LonelyInteger
+ *
+ * Solution:
+ * Accepted
+ *
+ *
+ * ------------------------------------------------------
+ * Time & Space Complexity: XOR Scan
+ * ------------------------------------------------------
+ * Let:           n = a.size()
+ *
+ * Time Complexity:  O(n)   | Scan each number once
+ * Space Complexity: O(1)   | Constant extra variables
+ * ------------------------------------------------------
+ *
+ * ******************************************************
+ */
 
-    HackerRank: Lonely Integer
-
-    Given an array of integers, where all elements but one occur twice, find the unique element.
-
-    Example: a = [1, 2, 2, 4, 1, 2]
-
-    The unique element is 4.
-
-    Solution:
-        Ongoing
-
-    Notes:
-        https://www.hackerrank.com/challenges/three-month-preparation-kit-lonely-integer/problem
-
-*********************************************************
-"""
-
-
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <unistd.h>
 
 using namespace std;
 
-string ltrim(const string&);
-string rtrim(const string&);
-vector<string> split(const string&);
-
-/*
- * Complete the 'lonelyinteger' function below.
+/**
+ * Finds the only value that does not have a duplicate.
  *
- * The function is expected to return an INTEGER.
- * The function accepts INTEGER_ARRAY a as parameter.
+ * @param a - input vector where every value except one appears twice
+ * @return result - value that appears once
  */
+int lonelyinteger(const vector<int>& a)
+{
+    int result = 0;
 
-int lonelyinteger(vector<int> a) {
+    // Duplicate values cancel out with XOR
+    for (int x : a)
+    {
+        result ^= x;
+    }
 
-    int i = 1;
-    int j = 0;
-    vector<int> lonelyIntegers;
-    vector<int> duplicates;
+    return result;
+}
 
-    lonelyIntegers.push_back(a[0]);
+/**
+ * Prints a vector in readable C++ format.
+ *
+ * @param nums - input vector of integers
+ * @return void
+ */
+void printVector(const vector<int>& nums)
+{
+    cout << "{";
 
-    if (a.size() == 1) { return 0;} // handle case of 1 element
+    for (size_t i = 0; i < nums.size(); i++)
+    {
+        cout << nums[i];
 
-    for (i = 1; i < a.size(); i++) {
-
-        for (j = 0; j < lonelyIntegers.size(); j++) {
-
-            if (a[i] == lonelyIntegers[j]) {
-
-                duplicates.push_back(lonelyIntegers[j]);
-            }
+        if (i < nums.size() - 1)
+        {
+            cout << ", ";
         }
     }
 
-    if (duplicates.size() == 0) {
+    cout << "}";
+}
 
-        return 0;
-    }
+/**
+ * Runs local sample tests.
+ *
+ * @param none
+ * @return void
+ */
+void runTests()
+{
+    // Test Case 1: HackerRank sample
+    vector<int> test1 = {1, 2, 3, 4, 3, 2, 1};
+    cout << "Input: ";
+    printVector(test1);
+    cout << endl;
+    cout << "Output: "
+         << lonelyinteger(test1)
+         << endl;
+    cout << "Expected: 4\n"
+         << endl;
 
-    return duplicates[0];
+    // Test Case 2: Single element edge case
+    vector<int> test2 = {1};
+    cout << "Input: ";
+    printVector(test2);
+    cout << endl;
+    cout << "Output: "
+         << lonelyinteger(test2)
+         << endl;
+    cout << "Expected: 1\n"
+         << endl;
+
+    // Test Case 3: Lonely value in the middle
+    vector<int> test3 = {0, 0, 5, 9, 9};
+    cout << "Input: ";
+    printVector(test3);
+    cout << endl;
+    cout << "Output: "
+         << lonelyinteger(test3)
+         << endl;
+    cout << "Expected: 5\n"
+         << endl;
 }
 
 int main()
 {
-    ofstream fout(getenv("OUTPUT_PATH"));
+    int n;
 
-    string n_temp;
-    getline(cin, n_temp);
-
-    int n = stoi(ltrim(rtrim(n_temp)));
-
-    string a_temp_temp;
-    getline(cin, a_temp_temp);
-
-    vector<string> a_temp = split(rtrim(a_temp_temp));
-
-    vector<int> a(n);
-
-    for (int i = 0; i < n; i++) {
-        int a_item = stoi(a_temp[i]);
-
-        a[i] = a_item;
+    // Local test path
+    if (isatty(STDIN_FILENO))
+    {
+        runTests();
+        return 0;
     }
 
-    int result = lonelyinteger(a);
+    // HackerRank input path
+    if (cin >> n)
+    {
+        vector<int> a(n);
 
-    fout << result << "\n";
+        for (int i = 0; i < n; i++)
+        {
+            cin >> a[i];
+        }
 
-    fout.close();
+        cout << lonelyinteger(a) << endl;
+        return 0;
+    }
+
+    // Fallback for no redirected input
+    runTests();
 
     return 0;
-}
-
-string ltrim(const string& str) {
-    string s(str);
-
-    s.erase(
-        s.begin(),
-        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
-    );
-
-    return s;
-}
-
-string rtrim(const string& str) {
-    string s(str);
-
-    s.erase(
-        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
-        s.end()
-    );
-
-    return s;
-}
-
-vector<string> split(const string& str) {
-    vector<string> tokens;
-
-    string::size_type start = 0;
-    string::size_type end = 0;
-
-    while ((end = str.find(" ", start)) != string::npos) {
-        tokens.push_back(str.substr(start, end - start));
-
-        start = end + 1;
-    }
-
-    tokens.push_back(str.substr(start));
-
-    return tokens;
 }
